@@ -1,6 +1,7 @@
 import {
   createProductService,
   deleteProductService,
+  getAllProductsService,
 } from "../services/products.services.js";
 
 //create product
