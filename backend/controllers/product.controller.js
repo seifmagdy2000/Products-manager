@@ -1,4 +1,9 @@
-import { createProductService } from "../services/products.services.js";
+import {
+  createProductService,
+  deleteProductService,
+} from "../services/products.services.js";
+
+//create product
 export async function createProduct(req, res) {
   const { name, price, image } = req.body;
 
@@ -17,7 +22,21 @@ export async function createProduct(req, res) {
     });
     res.status(201).json({ success: true, data: newProduct });
   } catch (error) {
-    console.error("Error creating the product:", error.message);
     res.status(500).json({ success: false, message: "Server error" });
+  }
+}
+
+//Delete product
+export async function deleteProduct(req, res) {
+  try {
+    const { id } = req.params;
+    const deletedProduct = await deleteProductService(id);
+    res
+      .status(200)
+      .json({ success: true, message: "product was deleted successfully" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ success: false, message: "failed to delete product" });
   }
 }

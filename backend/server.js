@@ -12,10 +12,6 @@ app.use(express.json());
 
 app.use(productRouter);
 
-app.get("/", (req, res) => {
-  res.send("working");
-});
-
 // Start the server
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, async () => {
