@@ -43,7 +43,11 @@ export async function deleteProduct(req, res) {
 }
 export async function getAllProducts(req, res) {
   try {
-    const allProducts = getAllProductsService();
-    res.status(200).json({ success: true });
-  } catch (error) {}
+    const allProducts = await getAllProductsService();
+    res.status(200).json({ success: true, data: allProducts });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ success: false, message: "Failed to get all products" });
+  }
 }

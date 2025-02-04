@@ -28,8 +28,9 @@ export const deleteProductService = async (id) => {
 
 export const getAllProductsService = async () => {
   try {
-    const allproducts = Product.find();
+    const allproducts = await Product.find();
+    return allproducts;
   } catch (error) {
-    throw new Error("Faild to ");
+    throw new Error("Faild to get all products");
   }
 };
