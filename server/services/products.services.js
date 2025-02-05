@@ -36,10 +36,12 @@ export const getAllProductsService = async () => {
 };
 export const updateProductService = async (id, updatedProduct) => {
   try {
+    console.log(id, updatedProduct);
+
     const newProduct = await Product.findByIdAndUpdate(id, updatedProduct, {
       new: true,
     });
-    if (!deletedProduct) {
+    if (!newProduct) {
       throw new Error("Product not found");
     }
     return newProduct;
