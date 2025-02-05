@@ -1,4 +1,4 @@
-import Product from "../../models/product.model.js";
+import Product from "../models/product.model.js";
 
 // Create a new product
 export const createProductService = async (productData) => {
@@ -32,5 +32,18 @@ export const getAllProductsService = async () => {
     return allproducts;
   } catch (error) {
     throw new Error("Failed to get all products");
+  }
+};
+export const updateProductService = async (id, updatedProduct) => {
+  try {
+    const newProduct = await Product.findByIdAndUpdate(id, updatedProduct, {
+      new: true,
+    });
+    if (!deletedProduct) {
+      throw new Error("Product not found");
+    }
+    return newProduct;
+  } catch (error) {
+    throw new Error("Failed to update");
   }
 };

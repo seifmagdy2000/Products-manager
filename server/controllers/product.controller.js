@@ -1,6 +1,7 @@
 import {
   createProductService,
   deleteProductService,
+  updateProductService,
   getAllProductsService,
 } from "../services/products.services.js";
 
@@ -48,6 +49,16 @@ export async function getAllProducts(req, res) {
   } catch (error) {
     res
       .status(500)
-      .json({ success: false, message: "Failed to get all products" });
+      .json({ success: false, message: "failed to fetch products" });
+  }
+}
+export async function updateProduct(req, res) {
+  try {
+    const updatedProduct = await updateProductService(req.params.id, req.body);
+    res.status(200).json({ success: true, data: updatedProduct });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ success: false, message: "failed to update product" });
   }
 }
