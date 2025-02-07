@@ -1,0 +1,106 @@
+/* Default (Light Mode) custom properties */
+:root {
+    --nav-height: 70px;
+    --nav-bg-color: #27445D;
+    --nav-title-color: #ffffff;
+    --nav-title-font-size: 2rem; 
+    --button-bg-color: #ffffff;
+    --button-text-color: #000000;
+    --button-border-radius: 4px;
+    --button-min-width: 100px;
+    --button-min-height: 40px;
+    --transition-bg-duration: 0.3s;
+    --transition-transform-duration: 0.2s;
+  }
+  
+  /* Dark Mode custom properties */
+  .dark-mode {
+    --nav-bg-color: #1f2d3d;       /* Dark background */
+    --nav-title-color: #e0e0e0;    /* Lighter title text */
+    --button-bg-color: #333333;    /* Dark button background */
+    --button-text-color: #f0f0f0;  /* Light button text */
+  }
+  
+  /* Navigation bar styles */
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--nav-bg-color);
+    height: var(--nav-height);
+    padding: 0 20px;
+    transition: background-color var(--transition-bg-duration) ease-in-out;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .nav-bar {
+      flex-direction: column;
+      height: auto;
+      padding: 10px;
+    }
+  }
+  
+  /* Title styles */
+  .nav-bar-title {
+    color: var(--nav-title-color);
+    font-size: var(--nav-title-font-size);
+    margin: 0; 
+    padding: 10px 0;
+  }
+  
+  /* Responsive title font size */
+  @media (max-width: 768px) {
+    .nav-bar-title {
+      font-size: 1.5rem;
+    }
+  }
+  
+  /* Navigation options (buttons container) */
+  .nav-options {
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .nav-options {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  }
+  
+  /* Button styles */
+  .nav-bar-button {
+    display: inline-block;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: var(--button-border-radius);
+    min-width: var(--button-min-width);
+    min-height: var(--button-min-height);
+    text-align: center;
+    cursor: pointer;
+    padding: 8px 16px;
+    transition: background-color var(--transition-bg-duration) ease-in-out,
+                transform var(--transition-transform-duration) ease-in-out;
+  }
+  
+  /* Button hover effect */
+  .nav-bar-button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Button click effect */
+  .nav-bar-button:active {
+    transform: scale(0.95);
+  }
+  
+  /* Button focus effect */
+  .nav-bar-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
+  }
+  
