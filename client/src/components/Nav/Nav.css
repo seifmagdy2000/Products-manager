@@ -1,4 +1,3 @@
-/* Default (Light Mode) custom properties */
 :root {
     --nav-height: 70px;
     --nav-bg-color: #27445D;
@@ -13,15 +12,14 @@
     --transition-transform-duration: 0.2s;
   }
   
-  /* Dark Mode custom properties */
   .dark-mode {
-    --nav-bg-color: #1f2d3d;       /* Dark background */
-    --nav-title-color: #e0e0e0;    /* Lighter title text */
-    --button-bg-color: #333333;    /* Dark button background */
-    --button-text-color: #f0f0f0;  /* Light button text */
+    --nav-bg-color: #1f2d3d;       
+    --nav-title-color: #e0e0e0;    
+    --button-bg-color: #6e6e6e;    
+    --button-text-color: #f0f0f0;  
   }
   
-  /* Navigation bar styles */
+
   .nav-bar {
     display: flex;
     align-items: center;
@@ -32,7 +30,6 @@
     transition: background-color var(--transition-bg-duration) ease-in-out;
   }
   
-  /* Responsive adjustments */
   @media (max-width: 768px) {
     .nav-bar {
       flex-direction: column;
@@ -41,7 +38,7 @@
     }
   }
   
-  /* Title styles */
+
   .nav-bar-title {
     color: var(--nav-title-color);
     font-size: var(--nav-title-font-size);
@@ -49,14 +46,14 @@
     padding: 10px 0;
   }
   
-  /* Responsive title font size */
+
   @media (max-width: 768px) {
     .nav-bar-title {
       font-size: 1.5rem;
     }
   }
   
-  /* Navigation options (buttons container) */
+
   .nav-options {
     display: flex;
     gap: 20px;
@@ -72,7 +69,6 @@
     }
   }
   
-  /* Button styles */
   .nav-bar-button {
     display: inline-block;
     background-color: var(--button-bg-color);
@@ -88,17 +84,16 @@
                 transform var(--transition-transform-duration) ease-in-out;
   }
   
-  /* Button hover effect */
+
   .nav-bar-button:hover {
     transform: scale(1.05);
   }
   
-  /* Button click effect */
+
   .nav-bar-button:active {
     transform: scale(0.95);
   }
-  
-  /* Button focus effect */
+
   .nav-bar-button:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);

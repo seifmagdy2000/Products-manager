@@ -1,5 +1,30 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+  }
+  
+  :root {
+    --body-bg-color: #ffffff;
+    --body-text-color: #000000;
+    
+    --product-bg-color: #ffffff;
+    --product-text-color: #000000;
+    --hover-bg-color: rgb(223, 223, 223);
+  }
+  
+  body {
+    background-color: var(--body-bg-color);
+    color: var(--body-text-color);
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+  
+  body.dark-mode {
+    --body-bg-color: #121212;
+    --body-text-color: #f5f5f5;
+    
+    --product-bg-color: #585757;
+    --product-text-color: #f0f0f0;
+    --hover-bg-color: #444444;
+  }
+  
