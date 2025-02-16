@@ -4,7 +4,6 @@ import CreatePage from './pages/CreatePage.jsx';
 import './App.css';
 import { useState, useEffect } from 'react';
 import Nav from './components/Nav/Nav.jsx';
-
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 

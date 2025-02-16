@@ -9,15 +9,15 @@ import {
 const router = express.Router();
 
 // Create a new product
-router.post("/api/products", createProduct);
+router.post("/products", createProduct);
 
 // Get all products
-router.get("/api/products/", getAllProducts);
+router.get("/products/", getAllProducts);
 
 //Delete a product
-router.delete("/api/products/:id", deleteProduct);
+router.delete("/products/:id", deleteProduct);
 
 //Update a product
-router.put("/api/products/:id", updateProduct);
+router.put("/products/:id", updateProduct);
 
 export default router;

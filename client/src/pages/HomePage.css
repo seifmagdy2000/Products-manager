@@ -1,0 +1,8 @@
+@media (min-width: 769px) { 
+    .product-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+  
