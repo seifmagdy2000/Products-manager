@@ -11,10 +11,10 @@ export const useProductStore = create((set) => ({
     }
 
     try {
-      console.log(newProduct);
+      console.log("Creating product:", newProduct);
 
       const res = await fetch("http://localhost:8080/api/products", {
-        method: "post",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
@@ -22,20 +22,26 @@ export const useProductStore = create((set) => ({
       });
 
       if (!res.ok) {
-        return { success: false, message: "Failed to create product." };
+        const errorData = await res.json();
+        return {
+          success: false,
+          message: errorData.message || "Failed to create product.",
+        };
       }
 
       const data = await res.json();
-
-      set((state) => ({
-        products: [...state.products, data.data],
-      }));
+      set((state) => ({ products: [...state.products, data.data] }));
 
       return { success: true, message: "Product added successfully!" };
     } catch (error) {
-      return { success: false, message: "An error occurred." };
+      console.error("Error creating product:", error);
+      return {
+        success: false,
+        message: "An error occurred while creating the product.",
+      };
     }
   },
+
   fetchProducts: async () => {
     try {
       const res = await fetch("http://localhost:8080/api/products", {
@@ -48,9 +54,31 @@ export const useProductStore = create((set) => ({
       }
 
       const data = await res.json();
-      set({ products: data.data });
+      set({ products: data.data || [] });
     } catch (error) {
       console.error("Error fetching products:", error);
+    }
+  },
+
+  deleteProduct: async (productId) => {
+    try {
+      const res = await fetch(
+        `http://localhost:8080/api/products/${productId}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (!res.ok) {
+        console.error("Failed to delete product");
+        return;
+      }
+
+      set((state) => ({
+        products: state.products.filter((product) => product._id !== productId),
+      }));
+    } catch (error) {
+      console.error("Error deleting product:", error);
     }
   },
 }));
