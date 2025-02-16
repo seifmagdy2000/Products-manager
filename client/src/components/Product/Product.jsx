@@ -1,11 +1,13 @@
 import React from "react";
-import "./Product.css";
 import { FaRegEdit } from "react-icons/fa";
 import { MdOutlineDeleteOutline } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import { useProductStore } from "../../store/product";
+import "./Product.css";
 
 const Product = ({ isDark, product }) => {
-  const { deleteProduct } = useProductStore(); 
+  const { deleteProduct } = useProductStore();
+  const navigate = useNavigate(); 
 
   return (
     <div className={isDark ? "product-container-dark-mode" : "product-container"}>
@@ -19,7 +21,7 @@ const Product = ({ isDark, product }) => {
         Updated: {product.updatedAt ? new Date(product.updatedAt).toLocaleString() : "N/A"}
       </p>
       <div className="btns">
-        <button type="button">
+        <button type="button" onClick={() => navigate(`/edit/${product._id}`)}>
           <FaRegEdit />
         </button>
         <button type="button" onClick={() => deleteProduct(product._id)}>

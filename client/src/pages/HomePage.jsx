@@ -12,8 +12,7 @@ const HomePage = (props) => {
         fetchData();
     }, []);
 
-    console.log(products);
-
+    console.log(products)
     return (
         <div className="homePage">
             <div className="product-list">

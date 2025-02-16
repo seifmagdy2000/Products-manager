@@ -81,4 +81,52 @@ export const useProductStore = create((set) => ({
       console.error("Error deleting product:", error);
     }
   },
+
+  updateProduct: async (productId, updatedProduct) => {
+    if (
+      !updatedProduct.name ||
+      !updatedProduct.price ||
+      !updatedProduct.image
+    ) {
+      return { success: false, message: "Please fill in all fields." };
+    }
+
+    try {
+      console.log("Updating product:", productId, updatedProduct);
+
+      const res = await fetch(
+        `http://localhost:8080/api/products/${productId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedProduct),
+        }
+      );
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        return {
+          success: false,
+          message: errorData.message || "Failed to update product.",
+        };
+      }
+
+      const data = await res.json();
+      set((state) => ({
+        products: state.products.map((product) =>
+          product._id === productId ? data.data : product
+        ),
+      }));
+
+      return { success: true, message: "Product updated successfully!" };
+    } catch (error) {
+      console.error("Error updating product:", error);
+      return {
+        success: false,
+        message: "An error occurred while updating the product.",
+      };
+    }
+  },
 }));

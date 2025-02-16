@@ -41,7 +41,7 @@ const Form = () => {
         <input type="text" name="name" placeholder="Product name" onChange={handleChange} value={newProduct.name} required />
         <input type="text" name="price" placeholder="Product price" onChange={handleChange} value={newProduct.price} required />
         <input type="text" name="image" placeholder="Image image" onChange={handleChange} value={newProduct.image} required />
-        <button type="submit">Add</button>
+        <button className='form-btn' type="submit">Add</button>
       </form>
     </div>
   );

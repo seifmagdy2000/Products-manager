@@ -1,0 +1,101 @@
+.edit-container {
+  max-width: 500px;
+  width: 90%;
+  min-width: 300px;
+  padding: 2rem;
+  background: var(--form-bg-color);
+  color: var(--form-text-color);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: background-color var(--transition-duration) ease;
+}
+
+h1 {
+  text-align: center;
+  color: var(--form-text-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--input-bg-color);
+  color: var(--input-text-color);
+  border: 1px solid var(--form-border-color);
+  border-radius: var(--input-border-radius);
+  font-size: 1rem;
+  transition: all var(--transition-duration) ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #628fe4;
+  box-shadow: var(--focus-glow);
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #628fe4;
+  color: white;
+  border: none;
+  border-radius: var(--input-border-radius);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-duration) ease;
+}
+
+button:hover {
+  background-color: #4a75d1;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-glow);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .edit-container {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  input, button {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .edit-container {
+    border-radius: 8px;
+  }
+}
